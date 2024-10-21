@@ -1,27 +1,34 @@
 import express, { json } from "express";
-import connectDB from "./src/config/db.js"
-import sendTransactions from "./src/routes/sendTransactions.js"
-const app=express()
+import connectDB from "./src/config/db.js";
+import sendTransactions from "./src/routes/sendTransactions.js";
+import auth from "./src/routes/auth.js";
+import tokenGenerator from "./src/routes/tokenGenerator.js"
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
-import cors from "cors"
-// impo
 
-const PORT=5000
-app.use(express.json())
+const app = express();
+const PORT = process.env.PORT || 5000;
+
 // Middleware
-app.use(express.json())
-app.use(cors({
-  origin:"http://localhost:5173",
-  methods:"GET,POST,PUT,DELETE",
-  credentials:true
-}))
+app.use(express.json());
 
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
-app.use("/",sendTransactions)
+// Routes
+app.use("/auth", auth);
+app.use("/api", sendTransactions);
+app.use("/v1", tokenGenerator);
 
-connectDB()
-app.listen(PORT,(req,res)=>
-{
-    console.log("server running ar port : "+PORT)
-})
+//config
+
+connectDB();
+app.listen(PORT, (req, res) => {
+  console.log("server running ar port : " + PORT);
+});
