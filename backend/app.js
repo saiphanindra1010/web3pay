@@ -23,8 +23,9 @@ app.use(
 
 // Routes
 app.use("/auth", auth);
-app.use("/api", sendTransactions);
 app.use("/v1", tokenGenerator);
+app.use("/api", sendTransactions);
+
 
 //config
 
