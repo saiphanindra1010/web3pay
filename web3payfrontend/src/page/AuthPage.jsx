@@ -14,7 +14,7 @@ const AuthPage = () => {
               className={`px-6 py-2 rounded-md transition-colors duration-200 w-24
                 ${isLogin 
                   ? 'bg-green-600 text-white' 
-                  : 'border border-green-600 text-green-600 hover:bg-green-600/10'
+                  : 'border border-green-600 text-white hover:bg-green-600/10'
                 }`}
             >
               Login
@@ -24,7 +24,7 @@ const AuthPage = () => {
               className={`px-6 py-2 rounded-md transition-colors duration-200 w-24 h-10
                 ${!isLogin 
                   ? 'bg-green-600 text-white' 
-                  : 'border border-green-600 text-green-600 hover:bg-green-600/10'
+                  : 'border border-green-600 text-white hover:bg-green-600/10'
                 }`}
             >
               Signup
@@ -38,6 +38,20 @@ const AuthPage = () => {
         {/* Form Section */}
         <div className="p-6 pt-0">
           <form className="space-y-4">
+          {!isLogin && (
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-green-100">
+                  Name
+                </label>
+                <input 
+                  type="text"
+                  placeholder="Enter Name"
+                  className="w-full px-4 py-2 rounded-md bg-green-950/30 border border-green-700 
+                           text-white placeholder-green-400/50 focus:outline-none focus:ring-2 
+                           focus:ring-green-600 focus:border-transparent"
+                />
+              </div>
+            )}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-green-100">
                 Email
@@ -51,20 +65,7 @@ const AuthPage = () => {
               />
             </div>
             
-            {!isLogin && (
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-green-100">
-                  Username
-                </label>
-                <input 
-                  type="text"
-                  placeholder="Choose a username"
-                  className="w-full px-4 py-2 rounded-md bg-green-950/30 border border-green-700 
-                           text-white placeholder-green-400/50 focus:outline-none focus:ring-2 
-                           focus:ring-green-600 focus:border-transparent"
-                />
-              </div>
-            )}
+
             
             <div className="space-y-2">
               <label className="block text-sm font-medium text-green-100">
@@ -105,7 +106,7 @@ const AuthPage = () => {
             
             {isLogin && (
               <div className="text-center mt-4">
-                <a href="#" className="text-sm text-green-400 hover:text-green-300">
+                <a href="#" className="text-sm text-white hover:text-green-300">
                   Forgot your password?
                 </a>
               </div>
