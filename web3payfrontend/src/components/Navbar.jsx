@@ -4,16 +4,16 @@ const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <header className="w-5/6 mx-auto mt-4 p-4 border bg-green-950 bg-opacity-50 backdrop-filter backdrop-blur-lg border-green-700 shadow-lg rounded-lg flex justify-center">
+    <header className=" mx-auto mt-4 p-4  bg-opacity-50 backdrop-filter backdrop-blur-lg  rounded-lg flex justify-center">
       <nav className="container flex flex-wrap items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-green-900 dark:text-white">
+        <Link to="/" className="text-2xl font-bold  dark:text-black">
           Web3 Payments
         </Link>
 
         {/* Mobile Menu Button */}
         <button
-          className="text-green-400 dark:text-white sm:hidden"
+          className="text-blue-400 dark:text-white sm:hidden"
           onClick={() => setIsNavOpen(!isNavOpen)}
         >
           <svg
@@ -35,15 +35,22 @@ const Navbar = () => {
         <div className={`w-full sm:flex sm:items-center sm:justify-center sm:w-auto ${isNavOpen ? 'block' : 'hidden'}`}>
   <ul className="flex flex-col sm:flex-row sm:items-center sm:space-x-6 mt-4 sm:mt-0">
     <li>
-      <Link to="/" className="text-green-800 dark:text-white hover:underline transition">Dashboard</Link>
+      <Link to="/" className="text-blue-800 text-lg dark:text-black font-semibold hover:underline transition">Dashboard</Link>
+    </li>
+    
+    <li>
+      <Link to="/apicreate" className="text-blue-800 text-lg font-semibold dark:text-black hover:underline transition">API Console</Link>
     </li>
     <li>
-      <Link to="/apicreate" className="text-green-800 dark:text-white hover:underline transition">API Console</Link>
+      <Link to="/" className="text-blue-800 text-lg dark:text-black font-semibold hover:underline transition">Docs</Link>
     </li>
+    {/* <li>
+      <Link to="/" className="text-blue-800 text-lg dark:text-black font-semibold hover:underline transition">Profile</Link>
+    </li> */}
     <li>
       <button
         type="button"
-        className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 shadow-lg shadow-blue-500/50 text-white font-bold py-2 px-4 rounded"
       >
         Sign out
       </button>
