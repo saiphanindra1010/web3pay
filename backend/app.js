@@ -29,7 +29,10 @@ app.use("/api", sendTransactions);
 
 //config
 
-connectDB();
-app.listen(PORT, (req, res) => {
-  console.log("server running ar port : " + PORT);
-});
+connectDB().then(()=>
+{app.listen(PORT, (req, res) => {
+    console.log("server running ar port : " + PORT);
+  });
+} 
+)
+
